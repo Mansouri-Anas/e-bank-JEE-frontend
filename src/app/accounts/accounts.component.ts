@@ -4,6 +4,7 @@ import {AccountsService} from "../services/accounts.service";
 import {catchError, Observable, throwError} from "rxjs";
 import {AccountDetails} from "../model/account.model";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-accounts',
@@ -20,7 +21,7 @@ export class AccountsComponent implements OnInit {
 
   accountDetails! : AccountDetails
 
-  constructor(private route : ActivatedRoute, private router : Router,private fb:FormBuilder, private accountService:AccountsService ) {
+  constructor(private route : ActivatedRoute, private router : Router,private fb:FormBuilder, private accountService:AccountsService, public authService : AuthenticationService ) {
     if(this.router.getCurrentNavigation()?.extras.state){
       this.accountDetails = this.router.getCurrentNavigation()?.extras.state as AccountDetails;
       this.accountObservable = this.accountService.getAccount(this.accountDetails.accountId, this.currentPage, this.pageSize);
