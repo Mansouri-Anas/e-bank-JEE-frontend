@@ -2,7 +2,8 @@
 
 Welcome to the E-Bank project repository! This project is built with Angular and aims to provide a digital banking solution. 
 
-https://github.com/Mansouri-Anas/e-bank-JEE-frontend/assets/106403012/f0952727-25b1-423d-8e5d-e5dba42efa0c
+
+https://github.com/Mansouri-Anas/e-bank-JEE-frontend/assets/106403012/f55364aa-7a82-4d67-b4d4-b5ab3b20d913
 
 
 
