@@ -1,0 +1,21 @@
+.sidebar {
+  font-family: Poppins;
+  color: #2B2F42;
+  font-size: 14px;
+
+}
+
+.selected-item {
+  background-image: linear-gradient(to left, #e0e0e0, #f2f2f2);
+  position: relative;
+}
+
+.selected-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 4px;
+  background-color: darkgrey;
+}
