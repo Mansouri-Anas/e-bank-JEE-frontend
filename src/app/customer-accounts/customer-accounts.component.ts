@@ -5,6 +5,7 @@ import {AccountDetails} from "../model/account.model";
 import {AccountsService} from "../services/accounts.service";
 import {Observable} from "rxjs";
 import {CustomerService} from "../services/customer.service";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-customer-accounts',
@@ -14,9 +15,9 @@ import {CustomerService} from "../services/customer.service";
 export class CustomerAccountsComponent {
   customerID!: string;
   customer!:Customer;
-  accounts$!: Observable<Array<AccountDetails>>
+  accounts!: Observable<Array<AccountDetails>>
 
-  constructor(private route : ActivatedRoute, private router : Router, private customerService: CustomerService) {
+  constructor(private route : ActivatedRoute, private router : Router, private customerService: CustomerService, public authService : AuthenticationService) {
     this.customer = this.router.getCurrentNavigation()?.extras.state as Customer;
 
   }
@@ -27,10 +28,10 @@ export class CustomerAccountsComponent {
 
   }
   handleCustomerAccounts() {
-    this.accounts$=this.customerService.getAccounts(this.customerID);
+    this.accounts=this.customerService.getAccounts(this.customerID);
   }
 
   handleAccount(account: AccountDetails) {
-    this.router.navigateByUrl("/accounts", {state: account});
+    this.router.navigateByUrl("/admin/accounts", {state: account});
   }
 }
